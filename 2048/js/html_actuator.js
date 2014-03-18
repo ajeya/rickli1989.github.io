@@ -1,5 +1,6 @@
 function HTMLActuator() {
-  this.tileContainer    = document.querySelector(".tile-container");
+  this.tileContainer1    = document.querySelector(".tile-container-1");
+  this.tileContainer2    = document.querySelector(".tile-container-2");
   this.scoreContainer   = document.querySelector(".score-container");
   this.bestContainer    = document.querySelector(".best-container");
   this.messageContainer = document.querySelector(".game-message");
@@ -11,16 +12,37 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
   var self = this;
 
   window.requestAnimationFrame(function () {
-    self.clearContainer(self.tileContainer);
+    self.clearContainer(self.tileContainer1);
 
-    grid.cells.forEach(function (column) {
+    grid.cells1.forEach(function (column) {
       column.forEach(function (cell) {
         if (cell) {
-          self.addTile(cell);
+          self.addTile1(cell);
         }
       });
     });
+    self.updateScore(metadata.score);
+    self.updateBestScore(metadata.bestScore);
 
+    if (metadata.over) self.message(false); // You lose
+    if (metadata.won) self.message(true); // You win!
+  });
+};
+
+HTMLActuator.prototype.actuate2 = function (grid, metadata) {
+  var self = this;
+
+  window.requestAnimationFrame(function () {
+
+    self.clearContainer(self.tileContainer2);
+    console.log(grid.cells2);
+    grid.cells2.forEach(function (column) {
+      column.forEach(function (cell) {
+        if (cell) {
+          self.addTile2(cell);
+        }
+      });
+    });
     self.updateScore(metadata.score);
     self.updateBestScore(metadata.bestScore);
 
@@ -39,7 +61,7 @@ HTMLActuator.prototype.clearContainer = function (container) {
   }
 };
 
-HTMLActuator.prototype.addTile = function (tile) {
+HTMLActuator.prototype.addTile1 = function (tile) {
   var self = this;
 
   var element   = document.createElement("div");
@@ -64,7 +86,7 @@ HTMLActuator.prototype.addTile = function (tile) {
 
     // Render the tiles that merged
     tile.mergedFrom.forEach(function (merged) {
-      self.addTile(merged);
+      self.addTile1(merged);
     });
   } else {
     classes.push("tile-new");
@@ -72,7 +94,45 @@ HTMLActuator.prototype.addTile = function (tile) {
   }
 
   // Put the tile on the board
-  this.tileContainer.appendChild(element);
+  this.tileContainer1.appendChild(element);
+
+};
+
+HTMLActuator.prototype.addTile2 = function (tile) {
+  var self = this;
+
+  var element   = document.createElement("div");
+  var position  = tile.previousPosition || { x: tile.x, y: tile.y };
+  positionClass = this.positionClass(position);
+
+  // We can't use classlist because it somehow glitches when replacing classes
+  var classes = ["tile", "tile-" + tile.value, positionClass];
+  this.applyClasses(element, classes);
+
+  element.textContent = tile.value;
+
+  if (tile.previousPosition) {
+    // Make sure that the tile gets rendered in the previous position first
+    window.requestAnimationFrame(function () {
+      classes[2] = self.positionClass({ x: tile.x, y: tile.y });
+      self.applyClasses(element, classes); // Update the position
+    });
+  } else if (tile.mergedFrom) {
+    classes.push("tile-merged");
+    this.applyClasses(element, classes);
+
+    // Render the tiles that merged
+    tile.mergedFrom.forEach(function (merged) {
+      self.addTile2(merged);
+    });
+  } else {
+    classes.push("tile-new");
+    this.applyClasses(element, classes);
+  }
+
+  // Put the tile on the board
+  this.tileContainer2.appendChild(element);
+
 };
 
 HTMLActuator.prototype.applyClasses = function (element, classes) {

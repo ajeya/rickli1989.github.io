@@ -24,10 +24,10 @@ KeyboardInputManager.prototype.listen = function () {
   var self = this;
 
   var map = {
-    38: 0, // Up
-    39: 1, // Right
-    40: 2, // Down
-    37: 3, // Left
+    38: 6, // Up
+    39: 7, // Right
+    40: 8, // Down
+    37: 9, // Left
     75: 0, // vim keybindings
     76: 1,
     74: 2,
@@ -39,6 +39,7 @@ KeyboardInputManager.prototype.listen = function () {
   };
 
   document.addEventListener("keydown", function (event) {
+
     var modifiers = event.altKey || event.ctrlKey || event.metaKey ||
                     event.shiftKey;
     var mapped    = map[event.which];
@@ -46,7 +47,9 @@ KeyboardInputManager.prototype.listen = function () {
     if (!modifiers) {
       if (mapped !== undefined) {
         event.preventDefault();
-        self.emit("move", mapped);
+        if(mapped > 5) self.emit("move2", mapped);
+        else self.emit("move", mapped);
+        
       }
 
       if (event.which === 32) self.restart.bind(self)(event);
@@ -59,7 +62,7 @@ KeyboardInputManager.prototype.listen = function () {
 
   // Listen to swipe events
   var touchStartClientX, touchStartClientY;
-  var gameContainer = document.getElementsByClassName("game-container")[0];
+  var gameContainer = document.getElementById("game-container-1");
 
   gameContainer.addEventListener("touchstart", function (event) {
     if (event.touches.length > 1) return;
@@ -85,6 +88,8 @@ KeyboardInputManager.prototype.listen = function () {
     if (Math.max(absDx, absDy) > 10) {
       // (right : left) : (down : up)
       self.emit("move", absDx > absDy ? (dx > 0 ? 1 : 3) : (dy > 0 ? 2 : 0));
+
+      self.emit("move2", absDx > absDy ? (dx > 0 ? 1 : 3) : (dy > 0 ? 2 : 0));
     }
   });
 };

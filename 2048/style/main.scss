@@ -1,10 +1,10 @@
 @import "helpers";
 @import "fonts/clear-sans.css";
 
-$field-width: 500px;
+$field-width: 1500px;
 $grid-spacing: 15px;
 $grid-row-cells: 4;
-$tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-cells;
+$tile-size: ($field-width/3 - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-cells;
 $tile-border-radius: 3px;
 
 $text-color: #776E65;
@@ -44,6 +44,16 @@ h1.title {
   margin: 0;
   display: block;
   float: left;
+}
+
+.player1, .player2{
+  width: 500px;
+  box-sizing: border-box;
+  float: left;
+}
+
+.player2{
+  float: right;
 }
 
 @include keyframes(move-up) {
@@ -180,8 +190,8 @@ hr {
 
     background: $game-container-background;
     border-radius: $tile-border-radius * 2;
-    width: $field-width;
-    height: $field-width;
+    width: $field-width/3;
+    height: $field-width/3;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -425,6 +435,8 @@ hr {
 }
 
 .game-explanation {
+  clear: both;
+  display: inline-block;
   margin-top: 50px;
 }
 
