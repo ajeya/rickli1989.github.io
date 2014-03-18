@@ -379,7 +379,7 @@ GameManager.prototype.tileMatchesAvailable2 = function () {
       tile = this.grid2.cellContent2({ x: x, y: y });
 
       if (tile) {
-        for (var direction = 0; direction < 4; direction++) {
+        for (var direction = 6; direction < 10; direction++) {
           var vector = self.getVector2(direction);
           var cell   = { x: x + vector.x, y: y + vector.y };
 
