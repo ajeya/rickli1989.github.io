@@ -72,12 +72,12 @@ h1.title {
   }
 }
 
-.scores-container {
+.scores-container, .scores-container-2 {
   float: right;
   text-align: right;
 }
 
-.score-container, .best-container {
+.score-container, .best-container, .score-container-2, .best-container-2 {
   position: relative;
   display: inline-block;
   background: #bbada0;
@@ -91,7 +91,7 @@ h1.title {
   margin-top: 8px;
   text-align: center;
 }
-.score-container:after, .best-container:after {
+.score-container:after, .best-container:after, .score-container-2:after, .best-container-2:after {
   position: absolute;
   width: 100%;
   top: 10px;
@@ -102,7 +102,7 @@ h1.title {
   text-align: center;
   color: #eee4da;
 }
-.score-container .score-addition, .best-container .score-addition {
+.score-container .score-addition, .best-container .score-addition, .score-container-2 .score-addition, .best-container-2 .score-addition {
   position: absolute;
   right: 30px;
   color: red;
@@ -150,7 +150,7 @@ hr {
 }
 
 .container {
-  width: 1500px;
+  width: 1200px;
   margin: 0 auto;
 }
 
@@ -194,13 +194,13 @@ hr {
   -moz-user-select: none;
   background: #bbada0;
   border-radius: 6px;
-  width: 500px;
-  height: 500px;
+  width: 400px;
+  height: 400px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.game-container .game-message {
+.game-container .game-message, .game-container .game-message-2 {
   display: none;
   position: absolute;
   top: 0;
@@ -215,18 +215,18 @@ hr {
   -webkit-animation-fill-mode: both;
   -moz-animation-fill-mode: both;
 }
-.game-container .game-message p {
+.game-container .game-message p, .game-container .game-message-2 p {
   font-size: 60px;
   font-weight: bold;
   height: 60px;
   line-height: 60px;
   margin-top: 222px;
 }
-.game-container .game-message .lower {
+.game-container .game-message .lower, .game-container .game-message-2 .lower {
   display: block;
   margin-top: 59px;
 }
-.game-container .game-message a {
+.game-container .game-message a, .game-container .game-message-2 a {
   display: inline-block;
   background: #8f7a66;
   border-radius: 3px;
@@ -237,11 +237,11 @@ hr {
   line-height: 42px;
   margin-left: 9px;
 }
-.game-container .game-message.game-won {
+.game-container .game-message.game-won, .game-container .game-message-2.game-won {
   background: rgba(237, 194, 46, 0.5);
   color: #f9f6f2;
 }
-.game-container .game-message.game-won, .game-container .game-message.game-over {
+.game-container .game-message.game-won, .game-container .game-message.game-over, .game-container .game-message-2.game-won, .game-container .game-message-2.game-over {
   display: block;
 }
 
@@ -263,8 +263,8 @@ hr {
 }
 
 .grid-cell {
-  width: 106.25px;
-  height: 106.25px;
+  width: 81.25px;
+  height: 81.25px;
   margin-right: 15px;
   float: left;
   border-radius: 3px;
@@ -280,9 +280,9 @@ hr {
 }
 
 .tile {
-  width: 106.25px;
-  height: 106.25px;
-  line-height: 116.25px;
+  width: 81.25px;
+  height: 81.25px;
+  line-height: 91.25px;
 }
 .tile.tile-position-1-1 {
   position: absolute;
@@ -292,77 +292,77 @@ hr {
 .tile.tile-position-1-2 {
   position: absolute;
   left: 0px;
-  top: 121px;
+  top: 96px;
 }
 .tile.tile-position-1-3 {
   position: absolute;
   left: 0px;
-  top: 243px;
+  top: 193px;
 }
 .tile.tile-position-1-4 {
   position: absolute;
   left: 0px;
-  top: 364px;
+  top: 289px;
 }
 .tile.tile-position-2-1 {
   position: absolute;
-  left: 121px;
+  left: 96px;
   top: 0px;
 }
 .tile.tile-position-2-2 {
   position: absolute;
-  left: 121px;
-  top: 121px;
+  left: 96px;
+  top: 96px;
 }
 .tile.tile-position-2-3 {
   position: absolute;
-  left: 121px;
-  top: 243px;
+  left: 96px;
+  top: 193px;
 }
 .tile.tile-position-2-4 {
   position: absolute;
-  left: 121px;
-  top: 364px;
+  left: 96px;
+  top: 289px;
 }
 .tile.tile-position-3-1 {
   position: absolute;
-  left: 243px;
+  left: 193px;
   top: 0px;
 }
 .tile.tile-position-3-2 {
   position: absolute;
-  left: 243px;
-  top: 121px;
+  left: 193px;
+  top: 96px;
 }
 .tile.tile-position-3-3 {
   position: absolute;
-  left: 243px;
-  top: 243px;
+  left: 193px;
+  top: 193px;
 }
 .tile.tile-position-3-4 {
   position: absolute;
-  left: 243px;
-  top: 364px;
+  left: 193px;
+  top: 289px;
 }
 .tile.tile-position-4-1 {
   position: absolute;
-  left: 364px;
+  left: 289px;
   top: 0px;
 }
 .tile.tile-position-4-2 {
   position: absolute;
-  left: 364px;
-  top: 121px;
+  left: 289px;
+  top: 96px;
 }
 .tile.tile-position-4-3 {
   position: absolute;
-  left: 364px;
-  top: 243px;
+  left: 289px;
+  top: 193px;
 }
 .tile.tile-position-4-4 {
   position: absolute;
-  left: 364px;
-  top: 364px;
+  left: 289px;
+  top: 289px;
 }
 
 .tile {
@@ -621,7 +621,7 @@ hr {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
   }
-  .game-container .game-message {
+  .game-container .game-message, .game-container .game-message-2 {
     display: none;
     position: absolute;
     top: 0;
@@ -636,18 +636,18 @@ hr {
     -webkit-animation-fill-mode: both;
     -moz-animation-fill-mode: both;
   }
-  .game-container .game-message p {
+  .game-container .game-message p, .game-container .game-message-2 p {
     font-size: 60px;
     font-weight: bold;
     height: 60px;
     line-height: 60px;
     margin-top: 222px;
   }
-  .game-container .game-message .lower {
+  .game-container .game-message .lower, .game-container .game-message-2 .lower {
     display: block;
     margin-top: 59px;
   }
-  .game-container .game-message a {
+  .game-container .game-message a, .game-container .game-message-2 a {
     display: inline-block;
     background: #8f7a66;
     border-radius: 3px;
@@ -658,11 +658,11 @@ hr {
     line-height: 42px;
     margin-left: 9px;
   }
-  .game-container .game-message.game-won {
+  .game-container .game-message.game-won, .game-container .game-message-2.game-won {
     background: rgba(237, 194, 46, 0.5);
     color: #f9f6f2;
   }
-  .game-container .game-message.game-won, .game-container .game-message.game-over {
+  .game-container .game-message.game-won, .game-container .game-message.game-over, .game-container .game-message-2.game-won, .game-container .game-message-2.game-over {
     display: block;
   }
 

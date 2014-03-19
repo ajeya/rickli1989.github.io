@@ -9,14 +9,19 @@ function GameManager(size, InputManager, Actuator, ScoreManager) {
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("move2", this.move2.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
-
+  this.inputManager.on("restart2", this.restart2.bind(this));
   this.setup();
 }
 
 // Restart the game
 GameManager.prototype.restart = function () {
   this.actuator.restart();
-  this.setup();
+  this.setup1();
+};
+
+GameManager.prototype.restart2 = function () {
+  this.actuator.restart2();
+  this.setup2();
 };
 
 // Set up the game
@@ -26,13 +31,42 @@ GameManager.prototype.setup = function () {
   
   this.score        = 0;
   this.over         = false;
+  this.over2        = false;
   this.won          = false;
-
+  this.won2         = false;
   // Add the initial tiles
   this.addStartTiles();
 
   // Update the actuator
   this.actuate();
+  this.actuate2();
+
+};
+
+GameManager.prototype.setup1 = function () {
+  this.grid         = new Grid(this.size);
+
+  
+  this.score        = 0;
+  this.over         = false;
+  this.won          = false;
+  // Add the initial tiles
+  this.addStartTiles();
+
+  // Update the actuator
+  this.actuate();
+
+};
+GameManager.prototype.setup2 = function () {
+  this.grid2        = new Grid(this.size);
+  
+  this.score        = 0;
+  this.over2        = false;
+  this.won2         = false;
+  // Add the initial tiles
+  this.addStartTiles();
+
+  // Update the actuator
   this.actuate2();
 
 };
@@ -87,15 +121,15 @@ GameManager.prototype.actuate = function () {
 };
 
 GameManager.prototype.actuate2 = function () {
-  if (this.scoreManager.get() < this.score) {
-    this.scoreManager.set(this.score);
+  if (this.scoreManager.get2() < this.score) {
+    this.scoreManager.set2(this.score);
   }
 
   this.actuator.actuate2(this.grid2, {
     score:     this.score,
-    over:      this.over,
+    over:      this.over2,
     won:       this.won,
-    bestScore: this.scoreManager.get()
+    bestScore: this.scoreManager.get2()
   });
 
 };
@@ -131,7 +165,7 @@ GameManager.prototype.moveTile2 = function (tile, cell) {
 };
 // Move tiles on the grid in the specified direction
 GameManager.prototype.move = function (direction) {
-  console.log("shit");
+
   // 0: up, 1: right, 2:down, 3: left
   var self = this;
 
@@ -195,11 +229,11 @@ GameManager.prototype.move = function (direction) {
 };
 
 GameManager.prototype.move2 = function (direction) {
-  console.log("fuck");
+
   // 0: up, 1: right, 2:down, 3: left
   var self = this;
 
-  if (this.over || this.won) return; // Don't do anything if the game's over
+  if (this.over2 || this.won2) return; // Don't do anything if the game's over
 
   var cell, tile;
 
@@ -237,7 +271,7 @@ GameManager.prototype.move2 = function (direction) {
           self.score += merged.value;
 
           // The mighty 2048 tile
-          if (merged.value === 2048) self.won = true;
+          if (merged.value === 2048) self.won2 = true;
         } else {
           self.moveTile2(tile, positions.farthest);
         }
@@ -253,7 +287,7 @@ GameManager.prototype.move2 = function (direction) {
     this.addRandomTile2();
 
     if (!this.movesAvailable2()) {
-      this.over = true; // Game over!
+      this.over2 = true; // Game over!
     }
 
     this.actuate2();

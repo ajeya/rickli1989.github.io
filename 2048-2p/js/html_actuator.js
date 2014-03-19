@@ -3,8 +3,10 @@ function HTMLActuator() {
   this.tileContainer2    = document.querySelector(".tile-container-2");
   this.scoreContainer   = document.querySelector(".score-container");
   this.bestContainer    = document.querySelector(".best-container");
+  this.scoreContainer2   = document.querySelector(".score-container-2");
+  this.bestContainer2    = document.querySelector(".best-container-2");
   this.messageContainer = document.querySelector(".game-message");
-
+  this.messageContainer2 = document.querySelector(".game-message-2");
   this.score = 0;
 }
 
@@ -43,16 +45,20 @@ HTMLActuator.prototype.actuate2 = function (grid, metadata) {
         }
       });
     });
-    self.updateScore(metadata.score);
-    self.updateBestScore(metadata.bestScore);
+    self.updateScore2(metadata.score);
+    self.updateBestScore2(metadata.bestScore);
 
-    if (metadata.over) self.message(false); // You lose
-    if (metadata.won) self.message(true); // You win!
+    if (metadata.over) self.message2(false); // You lose
+    if (metadata.won) self.message2(true); // You win!
   });
 };
 
 HTMLActuator.prototype.restart = function () {
   this.clearMessage();
+};
+
+HTMLActuator.prototype.restart2 = function () {
+  this.clearMessage2();
 };
 
 HTMLActuator.prototype.clearContainer = function (container) {
@@ -165,8 +171,29 @@ HTMLActuator.prototype.updateScore = function (score) {
   }
 };
 
+HTMLActuator.prototype.updateScore2 = function (score) {
+  this.clearContainer(this.scoreContainer2);
+
+  var difference = score - this.score;
+  this.score = score;
+
+  this.scoreContainer2.textContent = this.score;
+
+  if (difference > 0) {
+    var addition = document.createElement("div");
+    addition.classList.add("score-addition");
+    addition.textContent = "+" + difference;
+
+    this.scoreContainer2.appendChild(addition);
+  }
+};
+
 HTMLActuator.prototype.updateBestScore = function (bestScore) {
   this.bestContainer.textContent = bestScore;
+};
+
+HTMLActuator.prototype.updateBestScore2 = function (bestScore) {
+  this.bestContainer2.textContent = bestScore;
 };
 
 HTMLActuator.prototype.message = function (won) {
@@ -177,6 +204,19 @@ HTMLActuator.prototype.message = function (won) {
   this.messageContainer.getElementsByTagName("p")[0].textContent = message;
 };
 
+HTMLActuator.prototype.message2 = function (won) {
+  var type    = won ? "game-won" : "game-over";
+  var message = won ? "You win!" : "Game over!";
+
+  this.messageContainer2.classList.add(type);
+  this.messageContainer2.getElementsByTagName("p")[0].textContent = message;
+};
+
 HTMLActuator.prototype.clearMessage = function () {
   this.messageContainer.classList.remove("game-won", "game-over");
 };
+
+HTMLActuator.prototype.clearMessage2 = function () {
+  this.messageContainer2.classList.remove("game-won", "game-over");
+};
+

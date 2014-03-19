@@ -60,6 +60,10 @@ KeyboardInputManager.prototype.listen = function () {
   retry.addEventListener("click", this.restart.bind(this));
   retry.addEventListener("touchend", this.restart.bind(this));
 
+  var retry2 = document.getElementsByClassName("retry-button")[1];
+  retry2.addEventListener("click", this.restart2.bind(this));
+  retry2.addEventListener("touchend", this.restart2.bind(this));
+
   // Listen to swipe events
   var touchStartClientX, touchStartClientY;
   var gameContainer = document.getElementById("game-container-1");
@@ -98,3 +102,9 @@ KeyboardInputManager.prototype.restart = function (event) {
   event.preventDefault();
   this.emit("restart");
 };
+
+KeyboardInputManager.prototype.restart2 = function (event) {
+  event.preventDefault();
+  this.emit("restart2");
+};
+
