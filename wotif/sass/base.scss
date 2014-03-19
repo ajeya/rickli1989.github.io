@@ -1,0 +1,633 @@
+@mixin carousel-width($width) {
+  width: $width;
+}
+
+@mixin carousel-left($width) {
+  left: $width;
+}
+
+/* Common */
+html, body {
+	font-size:12px;
+	font-family:"Open Sans", serif;
+	margin:0;
+	padding:0;
+	color:#aaa;
+
+}
+
+#wotapp{
+	clear: both;
+	position: relative;
+	padding-left: 66px;
+	padding-right: 66px;
+	#wrapper{
+		width: 800px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	#flights-search{
+		position: relative;
+		display: inline-block;
+		left: 0px;
+		top: 0px;
+		margin: 0px auto;
+	}
+	#right-container{
+		position: relative;
+		display: inline-block;
+		top: 89px;
+		margin: 0px auto;
+		margin-left: 10px;
+		/* Right slider */
+		#mask {
+			overflow:hidden;
+			height:280px;
+		}
+		#slider { 
+			background:#000;
+			border:5px solid #eaeaea;
+			box-shadow:1px 1px 5px rgba(0,0,0,0.7);
+			height:280px;
+			@include carousel-width(500px); 
+			margin:40px auto 0;
+			overflow:visible;
+			position:relative;
+			ul {
+				margin:0;
+				padding:0;
+				position:relative;
+			}
+			li {
+				@include carousel-width(500px);
+				height:280px;
+				position:absolute;
+				left:0px;
+				list-style:none;
+			}
+			img {
+				@include carousel-width(500px);
+				height:280px;
+			}
+		}
+
+		#slider .tooltip {
+			width:300px;
+			height:60px;
+			position:relative;
+			bottom:60px;
+			left:0px;
+		}
+		#slider .tooltip h1 {
+			color:#fff;
+			font-size:14px;
+			font-weight:300;
+			line-height:60px;
+			padding:0 0 0 10px;
+		}
+
+		.control-bar {
+			position: absolute;
+			right: 10px;
+			top: 10px;
+			span{
+				background:rgba(0,0,0,0.7);
+				padding: 0px 3px;
+			}
+			span:hover{
+				cursor: pointer;
+			}
+			span:nth-child(2){
+				margin-left: 5px;
+			}
+		}
+
+		/* END Right slider */
+	}
+
+}
+
+
+/* Left search box*/
+#search-container{
+	margin: 0px auto;
+	width: 100%;
+	height: 330px;
+	color: #fff;
+	background: rgb(241,45,156);
+	input[type=radio] {  
+	    display: none;  
+	}  
+	#headerbar {
+		position: relative;
+		height: 30px;
+		background: rgb(158,30,103);
+		.book-banner {
+			background: rgb(39,39,39);
+			position: absolute;
+			
+			padding: 5px;
+			transform: rotate(-9deg);
+			left: -4px;
+			top: 4px;
+		}
+		.searchType {
+			margin-left: 50px;
+			margin-top: 8px;
+			display: inline-block;
+			label:before {  
+			    content: "";  
+			    display: inline-block;  
+			  	border-radius: 8px; 
+			    width: 13px;  
+			    height: 13px;  
+			  	margin-top: 1px;
+			    margin-right: 6px;  
+		 		margin-left: 5px;
+			    left: 0;  
+				vertical-align: bottom;
+			    background-color: #fff;    
+			}
+
+			input[type=radio]:checked + label:before {  
+			    content: "\2022";  
+			    color: rgb(241,45,156);  
+			    font-size: 23px;  
+			    text-align: center;  
+			    line-height: 12px;  
+			    vertical-align: bottom;
+			    line-height: 0.65em;
+			}  
+		}
+	}
+	.searchTitle{
+		font-size: 24px;
+		margin-top: 10px;
+		margin-left: 7px;
+		height: 8px;
+		font-family: "Times New Roman";
+	}
+	.searchBar{
+		height: 35px;
+		background: rgb(81,81,81);
+		position: relative;
+		.hotel-icon{
+			width: 29px;
+			background: #f12d9c;
+			position: absolute;
+			left: 9px;
+			top: 8px;
+			height: 19px;
+			border-top-left-radius: 5px;
+			border-bottom-left-radius: 5px;
+			img{
+				width: 18px;
+				margin-left: 5px;
+				margin-top: 1px;
+			}
+			input[type="text"]{
+				border: 0px;
+				margin-top: -21px;
+				appearance: none;
+				text-indent: 0.01px;
+    			text-overflow: '';
+				float: left;
+				margin-left: 29px;
+				width: 194px;
+				height: 17px;
+				border-top-right-radius: 5px;
+				border-bottom-right-radius: 5px;
+			}
+			::-webkit-input-placeholder { color:rgb(190,190,190); padding-left: 0.5em;}
+			::-moz-placeholder { color:rgb(190,190,190);  padding-left: 0.5em;} /* firefox 19+ */
+			:-ms-input-placeholder { color:rgb(190,190,190);  padding-left: 0.5em;} /* ie */
+			input:-moz-placeholder { color:rgb(190,190,190);  padding-left: 0.5em;}
+		}
+	}
+	.search-criteria{
+		padding: 10px;
+		position: relative;
+		.guests-label{
+			margin-top: 0px;
+			margin-bottom: 3px;
+		}
+		label{
+			clear:both;
+			display:block;
+			margin-bottom: 2px;
+		}
+		select, input {
+			background:rgb(238,238,238);
+			padding: 3px;
+			font-size: 12px;
+			line-height: 1;
+			border: 0;
+			border-radius: 0;
+			height: 22px;
+			appearance: none;
+			text-indent: 0.01px;
+    		text-overflow: '';
+			width: 105px;
+			border-top-left-radius: 3px;
+			border-bottom-left-radius: 3px;
+			width: 83%;
+		}
+		input{
+			height:16px;
+			width: 81px;
+		}
+		.adultsNum, .childrenNum, .dateOut, .nightStay{
+			width: 105px !important;
+			height: 22px !important;
+			background: rgb(133,133,133);
+			border-radius: 3px;
+			float: left;
+		}
+		.nightStay{
+			width: 105px !important;
+			height: 22px !important;
+			background: rgb(133,133,133);
+			border-radius: 3px;
+			float: left;
+			input{
+				width: 65px !important;
+				margin-left: 16px !important;
+				border-radius: 0px;
+			}
+		}
+		.childrenNum, .nightContainer{
+			margin-left: 15px;
+		}
+		.dateOutContainer {
+			position: relative;
+			.fakeTicker{
+				width: 20px;
+				height: 22px;
+				z-index: 100;
+				position: absolute;
+				right: 0px;
+			}
+		}
+		.adultsNum:after, .childrenNum:after, .dateOutContainer:after, .nightStay:after{
+			background: #858585;
+			clear: both;
+			display: block;
+			position: relative;
+			top: -3px;
+			left: 102px;
+			content: "\25BC";
+			width: 0;
+			padding: 0;
+			margin: -10px;
+			border-top-color: #FFF;
+			height: 3px;
+			font-size: 7px;
+		}
+		.adultsNum:hover, .childrenNum:hover, .dateOutContainer:hover, .nightStay:hover{
+			cursor: pointer;
+		}
+		#nightMinus{
+			width: 20px;
+			height: 22px;
+			position: absolute;
+		}
+		#nightPlus{
+			width: 20px;
+			height: 22px;
+			position: absolute;
+			z-index: 1;
+		}
+		.nightStay:after{
+			content: "+";
+			font-size: 20px;
+			top: -13px;
+			left: 100px;
+		}
+		.nightStay:before{
+			background: #858585;
+			clear: both;
+			display: block;
+			position: relative;
+			width: 0;
+			padding: 0;
+			height: 0px;
+			content: "-";
+			font-size: 20px;
+			top: -2px;
+			left: 4px;
+		}
+		.dateOutContainer:after{
+			top: -13px;
+		}
+		.dateOutContainer, .nightContainer{
+			float: left;
+			margin-top: 10px;
+		}
+		.dateBack{
+			clear: both;
+			width: 100%;
+			height: 30px;
+			background: rgb(220,41,142);
+			margin-top: 83px;
+			text-align: center;
+			color: #333;
+			font-size: 14px;
+			.label{
+				font-weight: bold;
+				display: inline-block;
+				margin-top: 7px;
+			}
+			.checkout{
+				color: rgb(153,24,98) ;
+			}
+
+		}
+		.dateBack:hover{
+			cursor: pointer;
+		}
+		#searchButton{
+			border: 0px;
+			float: right;
+			margin-top: 25px;
+			background: linear-gradient(to bottom, rgb(87,87,87) 0%, rgb(87,87,87) 49%,rgb(1,0,1)  51%,rgb(1,0,1)  100%);
+			color: #fff;
+			text-shadow: 0px -1px 0px #999;
+			border-radius: 5px;
+			font-size: 12px;
+			font-weight: normal;
+			padding: 7px 10px;
+			.searchIcon{
+				color: red;
+				font-size: 13px;
+			}
+		}
+		.trailTriangle{
+			position: absolute;
+			left: 6px;
+			top: 216px;
+			width: 0;
+			height: 0;
+			border-top: 10px solid transparent;
+			border-bottom: 10px solid transparent;
+			border-left: 10px solid rgb(159,33,103);
+			transform: rotate(-45deg);
+		}
+	}
+}
+
+/* Social bar */
+
+#socialContainer{
+	width: 95%;
+	height: 15px;
+	background: #faf3f8;
+	margin-top: 12px;
+	padding: 7px 13px;
+	font-size: 16px;
+	color: #444;
+	.pink{
+		font-weight: bold;
+		color : rgb(243,124,187);
+	}
+	div{
+		display: inline-block;
+		float: right;
+		margin-top: -3px;
+		span{
+			margin-left: 8px;
+		}
+		.facebook{
+			float: left;
+			width: 21px;
+			height: 21px;
+			display: block;
+			background: url("http://localhost/wotif/css/../images/social-icons.jpg");
+			background-position: -48px -1554px;
+		}
+
+		.twitter{
+			float: left;
+			width: 21px;
+			height: 21px;
+			display: block;
+			background: url("http://localhost/wotif/css/../images/social-icons.jpg");
+			background-position: -74px -1554px;
+		}
+
+		.gplus{
+			float: left;
+			width: 21px;
+			height: 21px;
+			display: block;
+			background: url("http://localhost/wotif/css/../images/social-icons.jpg");
+			background-position: -1105px -1554px;
+		}
+		.path{
+			float: left;
+			width: 21px;
+			height: 21px;
+			display: block;
+			background: url("http://localhost/wotif/css/../images/social-icons.jpg");
+			background-position: -100px -1554px;
+		}
+	}
+}
+
+
+/* END Left search box*/
+
+/* ANIMATION */
+@keyframes cycleright {
+	from {left:0px; opacity:1;}
+	to {@include carousel-left(500px); z-index:-1; opacity:0;}	
+}
+
+@keyframes cycleleft {
+	from {left:500px; opacity:-1;}
+	to {@include carousel-left(0px); z-index:0; opacity:1;}	
+}
+
+/* END ANIMATION */
+
+/* Modify jquery calendar css*/
+#ui-datepicker-div{
+    z-index: 1000 !important;
+    box-shadow: 3px 3px 10px 6px rgba(0,0,0,0.6);
+    border: 2px solid black;
+    .ui-state-default,  .ui-widget-content .ui-state-default,  .ui-widget-header .ui-state-default {
+	    border: 1px solid #d8dcdf;
+	    background: white 50% 50% repeat-x;
+	    font-weight: bold;
+	    color: #000000;
+	}
+}
+
+.ui-datepicker-departure{
+	 .ui-state-hover{
+	    background: #009900 !important;
+	    color: white !important;
+	}
+    .ui-state-highlight{
+	    background: #DC140A ;
+	    color: white;
+	}
+}
+.ui-datepicker-return {
+	.ui-state-hover{
+	    background: #DC140A !important;
+	    color: white !important;
+	}
+	.ui-state-highlight{
+	    background: #009900 ;
+	    color: white;
+	}
+}
+
+.ui-datepicker-departure .ui-state-active{
+    background : #009900 !important;
+    color :white !important;
+}
+
+.ui-datepicker-return .ui-state-active{
+    background : #DC140A !important;
+    color :white !important;
+}
+
+ .ui-dialog .ui-widget-header{
+    background: #F0F0F0;
+    border: none;
+    color:black;
+}
+
+.ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span{
+	display: none;
+}
+
+ .ui-datepicker-multi-3 .ui-datepicker-next{
+    position: absolute !important;
+    right: -26px !important;
+    top: 76px !important;
+    height: 46px !important;
+    width: 15px !important;
+    background: url("../images/red_arrow_right.png");
+}
+
+ .ui-datepicker-multi-3 .ui-datepicker-prev{
+    position: absolute !important;
+    left: -26px !important;
+    top: 76px !important;
+    height: 46px !important;
+    width: 15px !important;
+    background: url("../images/red_arrow_left.png") !important;
+}
+
+ .ui-datepicker-multi-3 .ui-datepicker-next.ui-state-hover{
+    background: url("../images/red_arrow_right.png") !important;
+    cursor: pointer;
+    border:none !important;
+}
+ .ui-datepicker-multi-3 .ui-datepicker-prev.ui-state-hover{
+    background: url("../images/red_arrow_left.png") !important;
+    cursor: pointer;
+    border:none !important;
+}
+
+ .ui-datepicker-multi-3 .ui-datepicker-prev.ui-corner-all.ui-state-disabled {
+    background: url("../images/greyed_arrow_left.png") !important;
+}
+
+ .ui-datepicker-multi-3 .ui-datepicker-next.ui-corner-all.ui-state-disabled{
+    background: url("../images/greyed_arrow_right.png") !important;
+}
+
+
+/* Responsive design */
+@media screen and (max-width: 900px) { 
+	#wrapper{
+		width: auto !important;
+	}
+	#right-container {
+		clear: both;
+		display: block !important;
+		top: 0px !important;
+	}
+	#flights-search{
+		display: block !important;
+		width: 245px;
+	}
+
+}
+@media screen and (max-width: 642px) { 
+	#wrapper{
+		width: auto !important;
+	}
+	#wotapp{
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+}
+@media screen and (max-width: 530px) { 
+	#wrapper{
+		width: auto !important;
+	}
+	#flights-search{
+		width: 100%;
+		left: 0px !important;
+		#search-container{
+			height: 380px;
+		}
+		.childrenNum{
+			clear: both;
+			margin-left: 0px !important; 
+			margin-top: 10px;
+		}
+		.dateOutContainer{
+			clear: both;
+		}
+		.nightContainer{
+			clear: both;
+			margin-left: 0px !important;
+		}
+		.dateBack {
+			clear: both;
+			margin-top: 20px !important;
+		}
+		.trailTriangle{
+			top: 266px !important;
+		}
+	}
+	#slider { 
+		margin-left: -9px !important;
+		@include carousel-width(100% !important); 
+		li {
+			@include carousel-width(100% !important);
+		}
+		img {
+			@include carousel-width(100% !important);
+		}
+
+	}
+	@-moz-keyframes cycleright {
+		from {left:0px; opacity:1;}
+		to {@include carousel-left(100%); z-index:-1; opacity:0;}	
+	}
+
+	@-webkit-keyframes cycleright {
+		from {left:0px; opacity:1;}
+		to {@include carousel-left(100%); z-index:-1; opacity:0;}
+	}
+
+}
+@media screen and (max-width: 425px) { 
+	#socialContainer{
+		margin-left: -9px !important;
+		height: auto !important;
+		.join{
+			clear:both;
+			display:block;
+		}
+		div{
+			margin-top: -28px;
+		}
+	}
+}
