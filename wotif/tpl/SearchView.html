@@ -1,0 +1,83 @@
+<div id="search-container">
+	<div id="headerbar">
+		<div class="book-banner">
+			BOOK !
+		</div>
+		<div class="searchType">
+			<input id="Hotels" type="radio" name="searchType" value="hotels" checked="checked">  
+		    <label for="Hotels">Hotels</label>  
+		    <input id="Flights" type="radio" name="searchType" value="flights">  
+		    <label for="Flights">Flights</label>  
+		</div>
+		
+	</div>
+	<p class="searchTitle"><%= title %></p>
+	<div class="searchBar">
+		<div class="hotel-icon">
+			<img src="images/hotel-coin.png" />
+			<input type="text" placeholder="<%= placeholder %>"/>
+		</div>
+	</div>
+
+	<div class="search-criteria">
+		<div>
+			<p class="guests-label">Number of guests</p>
+			<div class="adultsNum">
+				<select name="numAdults">
+					<option>1 adult</option>
+					<option selected="selected">2 adults</option>
+					<option>3 adults</option>
+					<option>4 adults</option>
+					<option>5 adults</option>
+					<option>6 adults</option>
+					<option>7 adults</option>
+					<option>8 adults</option>
+					<option>9 adults</option>
+				</select>
+			</div>
+			<div class="childrenNum">
+				<select name="numChild">
+					<option selected="selected">0 children</option>
+					<option>1 child</option>
+					<option>2 children</option>
+					<option>3 children</option>
+					<option>4 children</option>
+					<option>5 children</option>
+					<option>6 children</option>
+					<option>7 children</option>
+					<option>8 children</option>
+					<option>9 children</option>
+				</select>
+			</div>
+		</div>
+		<div class="dateOutContainer">
+			<label>Check in</label>
+			<div class="dateOut">
+				<input id="DateOut" name="DateOut" value="30 Nov - Fri"/> 
+			</div>
+			<span class="fakeTicker"></span>
+		</div>
+
+		<div class="nightContainer">
+			<label>for</label>
+			<div class="nightStay">
+				<span id="nightMinus"></span>
+				<input name="nightStay" value="1 night" num="1" readonly/> 
+				<span id="nightPlus"></span>
+			</div>
+		</div>
+
+		<div class="dateBack">
+			<span class="label">Check out:</span> <span class="checkout">1 Dec - Sat</span>
+			<input type="hidden" id="DateBack" name="DateBack"/> 
+		</div>
+
+		<button id="searchButton">
+			<span class="button-text">FIND A ROOM <span class="searchIcon">></span></span>
+		</button>
+		<div class="trailTriangle">
+
+		</div>
+	</div>
+	
+</div>
