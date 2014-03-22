@@ -1,25 +1,25 @@
 <% if(hasChild) { %>
-	<label class="hasChildLabel"><a href="#"><%=menuText%></a></label>
+	<label class="hasChildLabel"><a href="<%= linkUrl %>"><%=menuText%></a></label>
 		<% if(menuItems) { %>
 			<% _.each(menuItems.models, function(model) { %>
 				<ul class="level1">
-					<li <% if(model.toJSON().menuItems) { %> class="hasChild" <% } %>>
+					<li <% if(model.toJSON().menuItems) { %> class="hasChild" <% }else{ %> class="lastLevel" <% } %>>
 						<% if(model.toJSON().menuItems) { %>
-							<label class="hasChildLabel"><%=  model.toJSON().menuText %></label>
+							<label class="hasChildLabel"><a href="/<%= model.toJSON().linkUrl %>"><%=  model.toJSON().menuText %></a></label>
 							<% _.each(model.toJSON().menuItems.models, function(child) { %>
 									<ul class="level2">
-										<li>
-											<%= child.toJSON().menuText %>
+										<li class="hasChild lastLevel">
+											<a href="/<%= child.toJSON().linkUrl %>"><%= child.toJSON().menuText %></a>
 										</li>
 									</ul>
 							<% }); %>
 						<% }else{ %>
-				  			<%= model.toJSON().menuText %>
+				  			<a href="<%= model.toJSON().linkUrl %>"><%= model.toJSON().menuText %></a>
 				  		<% } %>
 				  	</li>
 				</ul>
 			<% }); %>
 		<% } %>
 <% } else{ %>
-	<%= menuText %>
+	<a href="<%= linkUrl %>"><%= menuText %></a>
 <% } %>

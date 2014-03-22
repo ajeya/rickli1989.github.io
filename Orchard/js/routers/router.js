@@ -5,15 +5,19 @@ define([
 	'collections/navItems',
 	'models/navItem',
 	'views/app',
-	'views/leftMenu'
-], function ($, Backbone, NavItems, NavItem, AppView, LeftMenuView) {
+	'views/leftMenu',
+	'views/content'
+], function ($, Backbone, NavItems, NavItem, AppView, LeftMenuView, ContentView) {
 	'use strict';
 
 	var nav_el = "#navbar ul";
 	
 	var Router = Backbone.Router.extend({
 		initialize: function() {
-		   	
+
+		   	var appView = new AppView();
+			
+			this.leftMenuView();
 	    }, 
 
 		routes: {
@@ -22,13 +26,17 @@ define([
 		},
 
 		home: function(){
-			var appView = new AppView();
-			this.navView();
-			this.leftMenuView();
+			this.navView("main");
+			this.configRoute("main");
 		},
 
 		configRoute: function(route){
-			alert(route);
+			//alert("configure : "+ route);
+			this.navView(route);
+	
+			var content = new ContentView();
+			content.render(route);
+			
 		},
 
 		leftMenuView: function(){
@@ -36,35 +44,40 @@ define([
 			view.render();
 		},
 
-		navView: function(){
+		navView: function(route){
+			//alert("NavView : " + route);
 			require(['views/navItem','views/navList'], function (NavItemView, NavListView) {
 
-				var item1 = new NavItem({
-					navText: 'Merisant',
-					linkUrl: 'javascript:void(0)',
-					order: 1
-				});
+		  		if(route == "main"){
+					var main = new NavItem({
+						navText: 'Home',
+						linkUrl: '#'
+					});
+					var navList = new NavItems();
+					navList.add(main);
+		  		}else{
+		  			var navList = new NavItems();
+					
+		  			var res = route.split("/");
+		  			_.each(res,function(menu,index){
+		  				console.log(index);
+		  				var navUrl = "";
+		  				_.each(res,function(menu1,index1){
+		  					if(index1 <= index){
+		  						navUrl += menu1+"/";
+		  					}
+		  				});
+		  				var temp = new NavItem({
+							navText: menu,
+							linkUrl: navUrl.substr(0, navUrl.length - 1)
+						});
+						navList.add(temp);
+		  			});
+		  		}
 
-				var item2 = new NavItem({
-					navText: 'Equal - APAC',
-					linkUrl: 'javascript:void(0)',
-					order: 1
-				});
-				var item3 = new NavItem({
-					navText: 'Design',
-					linkUrl: '',
-					order: 1
-				});
 
-
-
-				var navList = new NavItems();	
-		       	navList.add(item1);
-		       	navList.add(item2);
-		       	navList.add(item3);
-
-             	var view = new NavListView({collection:navList});
-             	view.render();
+             	 var view = new NavListView({collection:navList});
+             	 view.render();
 
 
 			});

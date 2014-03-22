@@ -3,20 +3,21 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'text!tpl/leftMenuView.html',
 	'models/menuItem',
 	'collections/menuItems',
 	'views/menuList'
-], function ($, _, Backbone, leftMenuTemplate, MenuItem, MenuItems, MenuListView) {
+], function ($, _, Backbone, MenuItem, MenuItems, MenuListView) {
 	'use strict';
 
 	var item3_1 = new MenuItem({
 		menuText: 'Orchard is fantastic',
-		hasChild: true
+		hasChild: true,
+		linkUrl: "dst/orchard-is-fantastic"
 	});
 	var item3_2 = new MenuItem({
 		menuText: 'Orchard is amazing',
-		hasChild: true
+		hasChild: true,
+		linkUrl: 'dst/orchard-is-amazing'
 	});
 	var menuList3 = new MenuItems();	
 
@@ -26,11 +27,13 @@ define([
 
 	var item4_1 = new MenuItem({
 		menuText: 'Orchard is fabulous',
-		hasChild: true
+		hasChild: true,
+		linkUrl: 'electrolux/orchard-is-fabulous'
 	});
 	var item4_2 = new MenuItem({
 		menuText: 'Orchard is extraordinary',
-		hasChild: true
+		hasChild: true,
+		linkUrl: 'electrolux/orchard-is-extraordinary'
 	});
 	var menuList4 = new MenuItems();	
 
@@ -38,11 +41,13 @@ define([
 	menuList4.add(item4_2);
 
 	var item9_1_1 = new MenuItem({
-		menuText: 'Design'
+		menuText: 'Design',
+		linkUrl: 'merisant/apac/design'
 	});
 
 	var item9_1_2 = new MenuItem({
-		menuText: 'Stage'
+		menuText: 'Stage',
+		linkUrl: 'merisant/apac/stage'
 	});
 	var menuList9_1 = new MenuItems();	
 
@@ -52,18 +57,21 @@ define([
 	var item9_1 = new MenuItem({
 		menuText: 'Equal - APAC',
 		hasChild: true,
-		menuItems: menuList9_1
+		menuItems: menuList9_1,
+		linkUrl: 'merisant/apac'
 	});
 	var menuList9 = new MenuItems();	
 
 	menuList9.add(item9_1);
 
 	var item10_1_1 = new MenuItem({
-		menuText: 'Orchard is awsome'
+		menuText: 'Orchard is awsome',
+		linkUrl: 'orchard/rick-profile/orchard-is-awsome'
 	});
 
 	var item10_1_2 = new MenuItem({
-		menuText: 'Hire me'
+		menuText: 'Hire me',
+		linkUrl: 'orchard/rick-profile/hire-me'
 	});
 	var menuList10_1 = new MenuItems();	
 
@@ -73,17 +81,20 @@ define([
 	var item10_1 = new MenuItem({
 		menuText: 'Rick Profile',
 		hasChild: true,
-		menuItems: menuList10_1
+		menuItems: menuList10_1,
+		linkUrl: 'orchard/rick-profile'
 	});
 	var menuList10 = new MenuItems();	
 
 	menuList10.add(item10_1);
 
 	var item11_1 = new MenuItem({
-		menuText: 'I love Orchard'
+		menuText: 'I love Orchard',
+		linkUrl: 'pfizer/i-love-orchard'
 	});
 	var item12_1 = new MenuItem({
-		menuText: 'Please hire me'
+		menuText: 'Please hire me',
+		linkUrl: 'variety/please-hire-me'
 	});
 	var menuList11 = new MenuItems();	
 
@@ -92,60 +103,72 @@ define([
 	menuList12.add(item12_1);
 
 	var item1 = new MenuItem({
-		menuText: 'AMC'
+		menuText: 'AMC',
+		linkUrl: 'amc'
 	});
 
 	var item2 = new MenuItem({
-		menuText: 'Beierdorf'
+		menuText: 'Beierdorf',
+		linkUrl: 'beierdorf'
 	});
 	var item3 = new MenuItem({
 		menuText: 'DST',
 		hasChild: true,
-		menuItems: menuList3
+		menuItems: menuList3,
+		linkUrl: 'dst'
 	});
 
 
 	var item4 = new MenuItem({
 		menuText: 'Electrolux',
 		hasChild: true,
-		menuItems: menuList4
+		menuItems: menuList4,
+		linkUrl: 'electrlux'
 	});
 
 	var item5 = new MenuItem({
-		menuText: 'Fox'
+		menuText: 'Fox',
+		linkUrl: 'fox'
 	});
 	var item6 = new MenuItem({
-		menuText: 'Galderma'
+		menuText: 'Galderma',
+		linkUrl: 'galderma'
 	});
 
 	var item7 = new MenuItem({
-		menuText: 'Investa'
+		menuText: 'Investa',
+		linkUrl: 'investa'
 	});
 
 	var item8 = new MenuItem({
-		menuText: 'MCN'
+		menuText: 'MCN',
+		linkUrl: 'mcn'
 	});
 	var item9 = new MenuItem({
 		menuText: 'Merisant',
 		hasChild: true,
-		menuItems: menuList9
+		menuItems: menuList9,
+		linkUrl: "merisant"
 	});
 
 	var item10 = new MenuItem({
 		menuText: 'Orchard',
 		hasChild: true,
-		menuItems: menuList10
+		menuItems: menuList10,
+		linkUrl: 'orchard'
 	});
 
 	var item11 = new MenuItem({
 		menuText: 'Pfizer',
 		hasChild: true,
-		menuItems: menuList11
+		menuItems: menuList11,
+		linkUrl: 'pfizer'
 	});
 	var item12 = new MenuItem({
 		menuText: 'Variety',
 		hasChild: true,
-		menuItems: menuList12
+		menuItems: menuList12,
+		linkUrl: 'variety'
 	});
 
 	var item13 = new MenuItem({

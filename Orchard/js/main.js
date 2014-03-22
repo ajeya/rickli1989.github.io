@@ -5,7 +5,7 @@
 require.config({
 
 	urlArgs: "bust=" + (new Date()).getTime(),
-
+	baseUrl: "/Orchard/js/",
 	map: {
         '*': {
             'models/data': '../js/models/data'
@@ -32,6 +32,7 @@ require.config({
 	paths: {
 		app: '../js/views/app',
 		tpl: '../js/templates',
+		content: '../js/templates/content',
 		jquery: '../lib/jquery/jquery',
 		underscore: '../lib/underscore/underscore',
 		backbone: '../lib/backbone/backbone',
@@ -48,12 +49,22 @@ require([
 ], function (PrefixFree, Backbone, Router) {
 	/*jshint nonew:false*/
 	// Initialize routing and start Backbone.history()
-	new Router();
+	var app_router = new Router();
+
+	$(document).on("click", "a", function(evt) {
+
+	  var href = { prop: $(this).prop("href"), attr: $(this).attr("href") };
+
+	    evt.preventDefault();
+	
+	    Backbone.history.navigate(href.attr, true);
+	  
+	});
 	var pushState = !!(window.history && window.history.pushState),
   
     settings = { pushState: pushState, hashChange: pushState ? true : false, root: "/Orchard" };
 
-Backbone.history.start(settings);
+	Backbone.history.start(settings);
 	
 //	Backbone.history.start({pushState:true, root: '/'});
 

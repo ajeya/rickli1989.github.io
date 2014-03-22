@@ -54,10 +54,15 @@ body {
 #wrapper #navbar ul .adminControl li:before {
   content: "";
 }
+#wrapper #content {
+  width: 100%;
+}
 #wrapper #content #left-bar {
+  min-height: 800px;
+  float: left;
   background: #dac9ab;
   width: 300px;
-  height: 800px;
+  height: auto;
   font-size: 14px;
 }
 #wrapper #content #left-bar ul.parent {
@@ -123,6 +128,9 @@ body {
 #wrapper #content #left-bar ul.parent li.hasChild ul.level1 ul.level2 > li:before {
   left: 57px;
 }
+#wrapper #content #left-bar ul.parent li.hasChild.lastLevel:before {
+  background-color: #b8aa90;
+}
 #wrapper #content #left-bar ul.parent li.hasChild.showChildren > .hasChildLabel:before {
   content: "-";
   left: 19px;
@@ -136,7 +144,15 @@ body {
 #wrapper #content #left-bar ul.parent .level1 li, #wrapper #content #left-bar ul.parent .level2 li {
   margin-top: 15px;
 }
+#wrapper #content #right-container {
+  background: #fdfaf3;
+  margin-left: 300px;
+  height: auto;
+  min-height: 760px;
+  padding: 20px 70px;
+}
 #wrapper #footer {
+  clear: both;
   width: 100%;
   background: #5f5848;
 }

@@ -11,7 +11,8 @@ define([
 		defaults: {
 			menuText: '',
 			hasChild: false,
-			menuItem: ''
+			menuItem: '',
+			linkUrl: '#'
 		}
 	});
 

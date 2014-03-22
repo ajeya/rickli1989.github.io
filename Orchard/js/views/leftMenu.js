@@ -3,35 +3,34 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'text!tpl/leftMenuView.html',
 	'models/menuItem',
 	'collections/menuItems',
 	'views/menuList',
 	'models/data'
-], function ($, _, Backbone, leftMenuTemplate, MenuItem, MenuItems, MenuListView, Data) {
+], function ($, _, Backbone, MenuItem, MenuItems, MenuListView, Data) {
 	'use strict';
-
+	var checked = false;
+	var inNav = false;
 	var LeftMenuView = Backbone.View.extend({
 		el: "#left-bar",
 
-		template: _.template(leftMenuTemplate),
-
-
 		initialize: function () {
 			
-			
-
 		},
 
 		events: {
-			'click li.hasChild' : 'toggleMenu'
+			'click li.hasChild, li.lastLevel' : 'toggleMenu'
 		},
 
+	
 		toggleMenu: function(e){
+				e.stopPropagation();	
+				e.preventDefault();
+				$(e.currentTarget).toggleClass("showChildren");
 
-			e.stopPropagation();	
-			$(e.currentTarget).toggleClass("showChildren");
-		
+				console.log(e.currentTarget);
+				Backbone.history.navigate($(e.currentTarget).find("a").first().attr("href"), true);
+			
 		},
 
 		render: function () {
@@ -41,7 +40,7 @@ define([
          	var view = new MenuListView({collection:menuList});
 
 			this.$el.html(view.render().el);
-			//this.$el.html(this.template());
+
 			return this;
 		}
 
