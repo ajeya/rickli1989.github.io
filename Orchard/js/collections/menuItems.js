@@ -1,0 +1,17 @@
+/*global define*/
+define([
+	'underscore',
+	'backbone',
+	'backboneLocalstorage',
+	'models/menuItem',
+	'views/menuItem'
+], function (_, Backbone, Store, MenuItem, MenuItemView) {
+	'use strict';
+
+	var MenuItemsCollection = Backbone.Collection.extend({
+		// Reference to this collection's model.
+		model: MenuItem
+	});
+
+	return MenuItemsCollection;
+});

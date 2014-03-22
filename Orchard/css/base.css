@@ -1,0 +1,148 @@
+html,
+body {
+  font-family: arial, san-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#wrapper #header {
+  position: relative;
+  height: 90px;
+  background: #eadac0;
+}
+#wrapper #header img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+#wrapper #navbar {
+  width: 100%;
+  border-bottom: 3px solid #8caf6d;
+  height: 30px;
+  background: #275d2c;
+  color: #fff;
+  vertical-align: top;
+  display: inline-block;
+}
+#wrapper #navbar ul {
+  padding-left: 26px;
+  line-height: 0px;
+}
+#wrapper #navbar ul a {
+  color: #fff !important;
+}
+#wrapper #navbar ul li {
+  display: inline;
+  list-style-type: none;
+  padding-right: 20px;
+}
+#wrapper #navbar ul li a {
+  color: #fff !important;
+}
+#wrapper #navbar ul li:before {
+  content: "\276D";
+  margin-right: 20px;
+}
+#wrapper #navbar ul > li:first-child:before {
+  content: "" !important;
+}
+#wrapper #navbar ul .adminControl {
+  float: right;
+}
+#wrapper #navbar ul .adminControl li:before {
+  content: "";
+}
+#wrapper #content #left-bar {
+  background: #dac9ab;
+  width: 300px;
+  height: 800px;
+  font-size: 14px;
+}
+#wrapper #content #left-bar ul.parent {
+  margin-top: 0px;
+  list-style: none;
+}
+#wrapper #content #left-bar ul.parent a {
+  color: #333;
+  text-decoration: none;
+}
+#wrapper #content #left-bar ul.parent > li {
+  padding-top: 20px;
+}
+#wrapper #content #left-bar ul.parent > li:first-child {
+  padding-top: 50px;
+}
+#wrapper #content #left-bar ul.parent li:before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 11px;
+  margin-left: 10px;
+  position: absolute;
+  left: 5px;
+  margin-top: 1px;
+  border: 1px solid #4f4021;
+  background-color: #b8aa90;
+}
+#wrapper #content #left-bar ul.parent li label:hover {
+  cursor: pointer;
+}
+#wrapper #content #left-bar ul.parent li.hasChild:before {
+  background-color: #575143;
+}
+#wrapper #content #left-bar ul.parent li .hasChildLabel:before {
+  content: "+";
+  color: #fff;
+  position: absolute;
+  left: 17px;
+  cursor: pointer;
+}
+#wrapper #content #left-bar ul.parent li.hasChild ul.level1 {
+  display: none;
+  margin-top: 12px;
+  list-style: none;
+  padding-left: 24px;
+}
+#wrapper #content #left-bar ul.parent li.hasChild ul.level1 > li:before {
+  left: 30px;
+}
+#wrapper #content #left-bar ul.parent li.hasChild ul.level1 > li .hasChildLabel:before {
+  left: 42px;
+}
+#wrapper #content #left-bar ul.parent li.hasChild ul.level1 > li.showChildren .hasChildLabel:before {
+  left: 44px;
+}
+#wrapper #content #left-bar ul.parent li.hasChild ul.level1 ul.level2 {
+  display: none;
+  margin-top: 12px;
+  list-style: none;
+  padding-left: 24px;
+}
+#wrapper #content #left-bar ul.parent li.hasChild ul.level1 ul.level2 > li:before {
+  left: 57px;
+}
+#wrapper #content #left-bar ul.parent li.hasChild.showChildren > .hasChildLabel:before {
+  content: "-";
+  left: 19px;
+}
+#wrapper #content #left-bar ul.parent li.hasChild.showChildren ul.level1 {
+  display: block;
+}
+#wrapper #content #left-bar ul.parent li.hasChild.showChildren ul.level1 .hasChild.showChildren ul.level2 {
+  display: block;
+}
+#wrapper #content #left-bar ul.parent .level1 li, #wrapper #content #left-bar ul.parent .level2 li {
+  margin-top: 15px;
+}
+#wrapper #footer {
+  width: 100%;
+  background: #5f5848;
+}
+#wrapper #footer p {
+  display: inline-block;
+  margin-left: 15px;
+  color: #fff;
+  font-size: 11px;
+}

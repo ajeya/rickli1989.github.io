@@ -1,0 +1,25 @@
+<% if(hasChild) { %>
+	<label class="hasChildLabel"><a href="#"><%=menuText%></a></label>
+		<% if(menuItems) { %>
+			<% _.each(menuItems.models, function(model) { %>
+				<ul class="level1">
+					<li <% if(model.toJSON().menuItems) { %> class="hasChild" <% } %>>
+						<% if(model.toJSON().menuItems) { %>
+							<label class="hasChildLabel"><%=  model.toJSON().menuText %></label>
+							<% _.each(model.toJSON().menuItems.models, function(child) { %>
+									<ul class="level2">
+										<li>
+											<%= child.toJSON().menuText %>
+										</li>
+									</ul>
+							<% }); %>
+						<% }else{ %>
+				  			<%= model.toJSON().menuText %>
+				  		<% } %>
+				  	</li>
+				</ul>
+			<% }); %>
+		<% } %>
+<% } else{ %>
+	<%= menuText %>
+<% } %>
