@@ -4,7 +4,7 @@
 // Require.js allows us to configure shortcut alias
 require.config({
 
-	urlArgs: "bust=" + (new Date()).getTime(),
+	//urlArgs: "bust=" + (new Date()).getTime(),
 	baseUrl: "/Orchard/js/",
 	map: {
         '*': {
@@ -47,8 +47,7 @@ require([
 	'backbone',
 	'routers/router'
 ], function (PrefixFree, Backbone, Router) {
-	/*jshint nonew:false*/
-	// Initialize routing and start Backbone.history()
+
 	var app_router = new Router();
 
 	$(document).on("click", "a", function(evt) {
@@ -66,6 +65,5 @@ require([
 
 	Backbone.history.start(settings);
 	
-//	Backbone.history.start({pushState:true, root: '/'});
 
 });

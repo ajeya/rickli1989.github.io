@@ -1,6 +1,8 @@
+@import 'design';
+
 html,
 body {
-	font-family: arial, san-serif;
+	font-family: "Courier New", Courier, monospace;
 	margin: 0;
 	padding: 0;
 	height:100%;
@@ -49,8 +51,14 @@ body {
 				content: "" !important;
 			}
 			.adminControl{
-
-				float: right;
+				font-family: "Arial Black", Gadget, sans-serif;
+				display: inline-block;
+				position: absolute;
+				right: 26px;
+				li{
+					padding: 5px 0px 0px 0px;
+					margin-right: 10px;
+				}
 				li:before{
 					content: "";
 				}
@@ -121,7 +129,7 @@ body {
 							left: 42px;
 						}
 						>li.showChildren .hasChildLabel:before{
-							left: 44px;
+							left: 42px;
 						}
 						ul.level2{
 							display: none;
@@ -139,7 +147,7 @@ body {
 				}
 				li.hasChild.showChildren>.hasChildLabel:before{
 					content: "-";
-					left: 19px;
+					left: 17px;
 				}
 				li.hasChild.showChildren{
 					ul.level1{

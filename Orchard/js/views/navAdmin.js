@@ -1,11 +1,9 @@
-/*global define*/
 define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'text!tpl/adminView.html',
-	'common'
-], function ($, _, Backbone, navTemplate, Common) {
+	'text!tpl/adminView.html'
+], function ($, _, Backbone, navTemplate) {
 	'use strict';
 
 	var NavAdminView = Backbone.View.extend({
@@ -18,7 +16,6 @@ define([
 			
 		},
 
-		// Re-render the titles of the todo item.
 		render: function () {
 
 			this.$el.html(this.template());

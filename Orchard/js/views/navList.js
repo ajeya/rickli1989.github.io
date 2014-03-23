@@ -1,4 +1,3 @@
-/*global define*/
 define([
 	'jquery',
 	'underscore',
@@ -20,7 +19,6 @@ define([
         render: function () {
         	this.$el.empty();
             _.each(this.collection.models, function (item) {
-            	//console.log(item);
                 this.$el.append(new NavItemView({model: item}).render().el);
             }, this);
             

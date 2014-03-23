@@ -1,4 +1,3 @@
-/*global define*/
 define([
 	'jquery',
 	'backbone',
@@ -31,12 +30,9 @@ define([
 		},
 
 		configRoute: function(route){
-			//alert("configure : "+ route);
 			this.navView(route);
-	
 			var content = new ContentView();
-			content.render(route);
-			
+			content.render(route);	
 		},
 
 		leftMenuView: function(){
@@ -45,7 +41,6 @@ define([
 		},
 
 		navView: function(route){
-			//alert("NavView : " + route);
 			require(['views/navItem','views/navList'], function (NavItemView, NavListView) {
 
 		  		if(route == "main"){
@@ -60,7 +55,6 @@ define([
 					
 		  			var res = route.split("/");
 		  			_.each(res,function(menu,index){
-		  				console.log(index);
 		  				var navUrl = "";
 		  				_.each(res,function(menu1,index1){
 		  					if(index1 <= index){
@@ -74,15 +68,9 @@ define([
 						navList.add(temp);
 		  			});
 		  		}
-
-
              	 var view = new NavListView({collection:navList});
              	 view.render();
-
-
 			});
-			
-
 		}
 	});
 

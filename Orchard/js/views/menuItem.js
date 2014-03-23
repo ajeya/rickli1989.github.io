@@ -1,11 +1,9 @@
-/*global define*/
 define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'text!tpl/menuItemView.html',
-	'common'
-], function ($, _, Backbone, MenuItemView, Common) {
+	'text!tpl/menuItemView.html'
+], function ($, _, Backbone, MenuItemView) {
 	'use strict';
 
 	var LeftMenuView = Backbone.View.extend({
@@ -29,8 +27,7 @@ define([
 
 		applyClass: function(){
 			if(this.model.get("hasChild"))
-				this.$el.addClass("hasChild");
-			 
+				this.$el.addClass("hasChild");	 
 		}
 
 	});

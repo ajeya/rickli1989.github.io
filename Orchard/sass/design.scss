@@ -1,0 +1,85 @@
+#right-container{
+	color: rgb(81,82,76) ;
+	p{
+		display: inline-block;
+	}
+	#apac-design{
+		#editButton{
+			border: 0px;
+			float: right;
+			margin-top: 25px;
+			background: rgb(43,125,59);
+			color: #fff;
+			text-shadow: 0px -1px 0px #999;
+			border-radius: 5px;
+			font-size: 12px;
+			font-weight: normal;
+			padding: 7px 10px;
+		
+		}
+		#addButton{
+			border: 0px;
+			margin-top: 25px;
+			background: rgb(43,125,59);
+			color: #fff;
+			text-shadow: 0px -1px 0px #999;
+			border-radius: 5px;
+			font-size: 12px;
+			font-weight: normal;
+			padding: 7px 10px;
+			float: right;
+		}
+		#editButton:hover, #addButton:hover{
+			cursor: pointer;
+		}
+		#banner-text{
+			float:left;
+			font-size: 25px;
+		}
+		.control-table{
+
+			border-color: #fff;
+			border-spacing: 0px;
+			width: 90%;
+			a{
+				color: #19A711;
+			}
+			tr.odd{
+				background: #fff;
+			}
+			tr.even{	
+				background: rgb(245,243,244) ;
+			}
+		}
+		.host-container{
+			border-radius: 10px;
+			height: 290px;
+			background: rgb(245,243,244);
+			border: 1px solid rgb(215,213,214);
+			width: 95%;
+			padding: 20px 35px;
+			table{
+				width: 100%;
+				border: 1px solid rgb(215,213,214);
+			}
+			table.first-row{
+				background: rgb(210,208,185) ;
+			}
+			table.odd{
+				border-top-right-radius: 10px;
+				border-top-left-radius: 10px;
+			}
+			table.even{
+				border-bottom-right-radius: 10px;
+				border-bottom-left-radius: 10px;
+			}
+		}
+	}
+	.hr{
+		margin-top: -10px;
+		width: 99%;
+		top: -17px;
+		position: relative;
+		display: inline-block;
+	}
+}

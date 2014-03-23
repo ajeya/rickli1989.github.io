@@ -9,7 +9,6 @@ define([
 	'use strict';
 
 	var MenuItemsCollection = Backbone.Collection.extend({
-		// Reference to this collection's model.
 		model: MenuItem
 	});
 

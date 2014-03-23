@@ -1,4 +1,3 @@
-/*global define*/
 define([
 	'jquery',
 	'underscore',
@@ -27,8 +26,6 @@ define([
 				e.stopPropagation();	
 				e.preventDefault();
 				$(e.currentTarget).toggleClass("showChildren");
-
-				console.log(e.currentTarget);
 				Backbone.history.navigate($(e.currentTarget).find("a").first().attr("href"), true);
 			
 		},
