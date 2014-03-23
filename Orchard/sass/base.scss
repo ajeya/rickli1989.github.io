@@ -51,12 +51,13 @@ body {
 				content: "" !important;
 			}
 			.adminControl{
-				font-family: "Arial Black", Gadget, sans-serif;
+				font-size: 14px;
 				display: inline-block;
 				position: absolute;
-				right: 26px;
+				right: 0px;
 				li{
-					padding: 5px 0px 0px 0px;
+					padding-right: 0px;
+					// padding: 5px 0px 0px 0px;
 					margin-right: 10px;
 				}
 				li:before{
