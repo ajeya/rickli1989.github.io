@@ -13,14 +13,14 @@ return array(
                     ),
                 ),
             ),
-            'application' => array(
+            'feeds' => array(
                 'type'    => 'Literal',
                 'options' => array(
-                    'route'    => '/application',
+                    'route'    => '/feeds',
                     'defaults' => array(
                         '__NAMESPACE__' => 'Application\Controller',
                         'controller'    => 'Index',
-                        'action'        => 'index',
+                        'action'        => 'feeds',
                     ),
                 ),
                 'may_terminate' => true,

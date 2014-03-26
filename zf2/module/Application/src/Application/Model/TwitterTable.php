@@ -36,7 +36,8 @@ use Zend\Db\TableGateway\TableGateway;
      {
          $data = array(
              'text' => $twitter->text,
-             'created_at'  => $twitter->created_at
+             'created_at'  => $twitter->created_at,
+             'user_id' => $twitter->user_id
          );
 
          $id = (int) $twitter->id;

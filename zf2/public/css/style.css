@@ -30,6 +30,19 @@ body {
   background-color: #57a900;
 }
 
+.bg-danger{
+  background-color: #f2dede;
+  padding: 10px;
+}
+
+.navbar-header{
+  width: 100%;
+}
+nav.navbar .feedsBtn{
+  float: right;
+  margin: 22px 0px;
+}
+
 nav.navbar a.navbar-brand img{
   width: 130px;
 }
@@ -184,4 +197,5 @@ nav.navbar h1{
   .navbar-brand{
     display: none;
   }
+
 }

@@ -6,6 +6,8 @@ use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
 use Application\Model\Twitter;
 use Application\Model\TwitterTable;
+use Application\Model\User;
+use Application\Model\UserTable;
 use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\TableGateway\TableGateway;
 
@@ -48,6 +50,17 @@ class Module
                      $resultSetPrototype = new ResultSet();
                      $resultSetPrototype->setArrayObjectPrototype(new Twitter());
                      return new TableGateway('twitter', $dbAdapter, null, $resultSetPrototype);
+                 },
+                 'Application\Model\UserTable' =>  function($sm) {
+                     $tableGateway = $sm->get('UserTableGateway');
+                     $table = new UserTable($tableGateway);
+                     return $table;
+                 },
+                 'UserTableGateway' => function ($sm) {
+                     $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+                     $resultSetPrototype = new ResultSet();
+                     $resultSetPrototype->setArrayObjectPrototype(new User());
+                     return new TableGateway('user', $dbAdapter, null, $resultSetPrototype);
                  },
              ),
          );
