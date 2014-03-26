@@ -7,9 +7,7 @@ This is a simple, twitter application using the ZF2 MVC layer and module
 systems to get the feed from a user and store it into database, finally using
 Angular js ngTable to sort and filter in front-end.
 
-Installation
-
-Using Git
+Installation Using Git
 --------------------
 You need to an install using native git submodules:
 
@@ -48,6 +46,6 @@ project and you should be ready to go! It should look something like below:
 
 Sameple Scrennshot
 ------------------
-![alt tag](https://github.com/rickli1989/rickli1989.github.io/tree/master/zf2/public/img/shot1.png)
-![alt tag](https://github.com/rickli1989/rickli1989.github.io/tree/master/zf2/public/img/shot2.png)
-![alt tag](https://github.com/rickli1989/rickli1989.github.io/tree/master/zf2/public/img/shot3.png)
+![alt tag](https://raw.githubusercontent.com/rickli1989/rickli1989.github.io/master/zf2/public/img/shot1.png)
+![alt tag](https://raw.githubusercontent.com/rickli1989/rickli1989.github.io/master/zf2/public/img/shot2.png)
+![alt tag](https://raw.githubusercontent.com/rickli1989/rickli1989.github.io/master/zf2/public/img/shot3.png)
