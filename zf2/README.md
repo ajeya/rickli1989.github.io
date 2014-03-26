@@ -8,7 +8,6 @@ systems to get the feed from a user and store it into database, finally using
 Angular js ngTable to sort and filter in front-end.
 
 Installation
-------------
 
 Using Git
 --------------------
@@ -45,3 +44,10 @@ project and you should be ready to go! It should look something like below:
             Allow from all
         </Directory>
     </VirtualHost>
+
+
+Sameple Scrennshot
+------------------
+![alt tag](https://github.com/rickli1989/rickli1989.github.io/tree/master/zf2/public/img/shot1.png)
+![alt tag](https://github.com/rickli1989/rickli1989.github.io/tree/master/zf2/public/img/shot2.png)
+![alt tag](https://github.com/rickli1989/rickli1989.github.io/tree/master/zf2/public/img/shot3.png)
