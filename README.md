@@ -1,2 +1,2 @@
-Personal Work
--------------
+Personal Work Showcase
+----------------------
