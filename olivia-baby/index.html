@@ -4,9 +4,16 @@ The markup will have a list with images and the titles-->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <canvas id="canvas" style="position:absolute;"></canvas>
-<audio controls autoplay loop=loop style="display:inline-block">
+<audio id="myVideo" controls loop=loop style="display:inline-block">
   <source src="ifonly.mp3" type="audio/mpeg">
 </audio>
+<script type="text/javascript">
+  $(document).ready(function(){
+    var vid = document.getElementById("myVideo");
+    vid.autoplay = true;
+    vid.load();
+  })
+</script>
 <div style="text-align:center;">
 	
   <p style="color:red; font-size: 20px;margin-top : -20px">张琦，我喜欢你</p>
