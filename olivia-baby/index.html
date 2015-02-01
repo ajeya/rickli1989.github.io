@@ -4,14 +4,18 @@ The markup will have a list with images and the titles-->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <canvas id="canvas" style="position:absolute;"></canvas>
-<audio style="visibility:hidden" id="myVideo" controls loop=loop autoplay="autoplay" style="display:inline-block">
+<audio style="visibility:hidden" id="myVideo" controls loop=loop style="display:inline-block">
   <source src="ifonly.mp3" type="audio/mpeg">
 </audio>
 <script type="text/javascript">
   $(document).ready(function(){
-    var vid = document.getElementById("myVideo");
-    vid.autoplay = true;
-    vid.load();
+    // var vid = document.getElementById("myVideo");
+    // vid.autoplay = true;
+    // vid.load();
+
+    var myaudio = new Audio('ifonly.mp3');
+    myaudio.loop = true;
+    myaudio.play();
   })
 </script>
 <div style="text-align:center;">
