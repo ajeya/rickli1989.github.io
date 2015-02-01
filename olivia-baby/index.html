@@ -3,25 +3,32 @@ The markup will have a list with images and the titles-->
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<button style="visibility:hidden" class="playBtn">
+  play
+</button>
 <canvas id="canvas" style="position:absolute;"></canvas>
 <audio style="visibility:hidden" id="myVideo" controls loop=loop style="display:inline-block">
   <source src="ifonly.mp3" type="audio/mpeg">
 </audio>
+
 <script type="text/javascript">
   $(document).ready(function(){
     // var vid = document.getElementById("myVideo");
     // vid.autoplay = true;
     // vid.load();
-
-    var myaudio = new Audio('ifonly.mp3');
-    myaudio.loop = true;
-    myaudio.play();
+    setTimeout(function(){
+      document.getElementById("myVideo").play();
+    },0);
   })
+$(".playBtn").click(function(){
+  document.getElementById("myVideo").play();
+});
 </script>
 <div style="text-align:center;">
 	
   <p style="color:red; font-size: 20px;margin-top : -20px">张琦，我喜欢你</p>
 </div>
+
 
 <div align="center" style="background:#ccc !important; height: 80px;">
 
