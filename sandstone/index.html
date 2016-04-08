@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" data-framework="backbonejs">
+	<head>
+		<meta charset="utf-8">
+		<title>Backbone chat</title>
+		<link rel="stylesheet" href="css/base.css">
+	</head>
+	<body>
+		<section id="chatapp">
+			<h1>Webchat</h1>
+			<div id="msg-container">
+				<p class="greeting">Start Chatting by clicking "Chat Now"</p>
+			</div>
+			<div id="control-box">
+				<a href="javascript:void(0)" id="chat-now">Chat Now</a>
+			</div>
+		</section>
+		<script type="text/template" id="control-box-template">
+			<input type="text" id="msg-input-box"/> <button id="send-msg-button">send</button> 
+		</script>
+
+		<script type="text/template" id="msg-template">
+			<div class="msg-item">
+				<p class="<%= className %>"><span><%= name %> :</span>"<%= msg %>"</p>
+			</div>
+		</script>
+
+		<script type="text/template" id="item-template">
+
+		</script>
+		<script src="lib/jquery/jquery.js"></script>
+		<script src="lib/underscore/underscore.js"></script>
+		<script src="lib/prefixfree/prefixfree.js"></script>
+		<script src="lib/backbone/backbone.js"></script>
+		<script src="js/models/chat.js"></script>
+		<script src="js/collections/chats.js"></script>
+		<script src="js/views/app-view.js"></script>
+		<script src="js/app.js"></script>
+	</body>
+</html>

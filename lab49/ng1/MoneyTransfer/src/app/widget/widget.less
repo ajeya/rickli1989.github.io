@@ -1,0 +1,72 @@
+@import '../variable.less';
+
+md-toolbar h1 {
+  margin: auto;
+}
+
+md-toolbar h1 {
+  font-size: 1.250em;
+  font-weight: 400;
+}
+
+.widget_wrapper{
+  justify-content: center;
+  padding: 50px 0px;
+  .widget{
+    font-size: 1em;
+    width: 50%;
+    height: 500px;
+    position: relative;
+    .send, .receive{
+      display: flex;
+      margin-top: 20px;
+      md-input-container{
+        width: 50%;
+        .symbol{
+          position: absolute;
+          left: 2px;
+          bottom: 30px;
+        }
+        &.input-container{
+          label, input{
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+    .sendBtn{
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+    }
+  }
+}
+
+@media @phone {
+  md-toolbar{
+    h1{
+      font-size: 1em !important;
+    }
+  }
+  .widget_wrapper{
+    padding: 10px;
+    .widget{
+      width: 100% !important;
+      md-input-container{
+        width: 100% !important;
+      }
+    }
+    .send, .receive{
+      flex-direction: column;
+    }
+  }
+}
+
+@media @tablet {
+  .widget_wrapper{
+    padding: 10px;
+    .widget{
+      width: 100% !important;
+    }
+  }
+}

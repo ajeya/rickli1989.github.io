@@ -1,0 +1,60 @@
+<div flex layout="column">
+
+  <md-toolbar layout="row">
+    <h1>Lab49 Money Transfer Widget</h1>
+  </md-toolbar>
+
+  <div class="widget_wrapper" layout="row">
+    <div class="widget md-whiteframe-z5">
+      <md-toolbar md-scroll-shrink>
+         <div class="md-toolbar-tools">
+           <h3>
+             <span>Money Transfter</span>
+           </h3>
+         </div>
+       </md-toolbar>
+      <form name="ctrl.WidgetForm" validate ng-submit="ctrl.submit()">
+        <div class="send">
+           <md-input-container class="input-container" md-no-float>
+             <label>Your Send</label>
+             <span class="symbol">{{ctrl.sendSymbol}}</span><input ng-model="ctrl.sendMoney" name="sendMoney" required valid-input type="text">
+             <div ng-messages="ctrl.WidgetForm.sendMoney.$error">
+               <div ng-message="validInput">
+                 You need to enter a valid currency value
+               </div>
+             </div>
+           </md-input-container>
+
+           <md-input-container>
+             <label>Currency</label>
+             <md-select ng-model="ctrl.sendCur" ng-change="ctrl.changeCal('send', ctrl.sendCur)">
+               <md-option ng-repeat="cur in ctrl.currencies" value="{{cur}}">{{cur}}</md-option>
+             </md-select>
+           </md-input-container>
+        </div>
+
+         <div class="receive">
+             <md-input-container class="input-container" md-no-float>
+               <label>Receive</label>
+               <span class="symbol">{{ctrl.receiveSymbol}}</span>
+               <input ng-model="ctrl.receiveMoney" name="receiveMoney" type="text" ng-disabled="true">
+             </md-input-container>
+
+             <md-input-container>
+               <label>Currency</label>
+               <md-select ng-model="ctrl.receiveCur" ng-change="ctrl.changeCal('receive', ctrl.receiveCur)">
+                 <md-option ng-repeat="cur in ctrl.currencies" value="{{cur}}">{{cur}}</md-option>
+               </md-select>
+             </md-input-container>
+         </div>
+     
+         <div class="sendBtn">
+            <md-button type="submit" class="md-primary md-raised">Send</md-button>
+         </div>
+       </form>
+    </div>
+  </div>
+</div>
+
+
+
