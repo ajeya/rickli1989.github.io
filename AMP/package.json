@@ -1,0 +1,28 @@
+{
+  "name": "AMP",
+  "version": "1.0.0",
+  "description": "AMP code test for FED",
+  "scripts": {
+    "prestart": "bower install && npm install",
+    "start": "grunt",
+    "test": "karma start "
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://AMPFeds@bitbucket.org/AMPFeds/amp-code-test.git"
+  },
+  "author": "AMP",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "karma-chrome-launcher": "^0.2.2",
+    "angular-mocks": "^1.5.0",
+    "grunt": "^0.4.5",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-sass": "^1.1.0",
+    "karma": "^0.13.19",
+    "karma-mocha": "^0.2.1",
+    "mocha": "^2.1.0",
+    "sinon": "^1.12.2"
+  }
+}

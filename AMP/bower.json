@@ -1,0 +1,19 @@
+{
+  "name": "AMP code test",
+  "version": "0.0.0",
+  "authors": [
+    "Rick Li - rick.li1989@outlook.com"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ],
+  "dependencies": {
+    "angular": "~1.5.0",
+    "bootstrap-sass": "~3.3.6"
+  }
+}

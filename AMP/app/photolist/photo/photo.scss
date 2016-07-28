@@ -1,0 +1,11 @@
+.photo_item{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  .name{
+    align-self: center;
+    color: #359AB3;
+    font-size: 20px;
+    margin-top: 10px;
+  }
+}
