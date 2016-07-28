@@ -59,12 +59,7 @@ The page should be responsive. A creative has been supplied for the larger views
 
 In order to run the project you'll need to use the following commands.
 
-npm i
-
-bower i
-
-npm i karma-cli -g
-
+npm start
 
 
 
