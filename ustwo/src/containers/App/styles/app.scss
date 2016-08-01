@@ -1,0 +1,28 @@
+/* global styles */
+
+@import 'fonts/roboto';
+@import 'typography';
+@import 'links';
+@import 'variable';
+
+:global(body) {
+  
+  background: #ecf0f5;
+  img {
+    width: 100%;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus,
+  button:focus {
+    outline: none !important;
+  }
+
+  input:-webkit-autofill { -webkit-box-shadow:0 0 0 500px white inset; }
+
+  div[mode="portrait"] {
+    width: 100% !important;
+  }
+
+}

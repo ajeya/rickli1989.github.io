@@ -1,0 +1,14 @@
+{
+  "presets": ["react", "es2015-webpack" , "stage-0"],
+  "plugins": [
+    "transform-decorators-legacy",
+    "transform-async-to-generator",
+    "syntax-async-functions",
+    "dot-dot-slash"
+  ],
+  "env": {
+    "start": {
+      "presets": ["react-hmre"]
+    }
+  }
+}
