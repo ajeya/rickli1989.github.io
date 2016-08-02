@@ -4,7 +4,7 @@
   "description": "Homework test",
   "scripts": {
     "clean": "rimraf dist",
-    "build": "webpack --progress --verbose --colors --display-error-details --config webpack/common.config.js",
+    "build": "webpack --progress --verbose --display-error-details --config webpack/common.config.js",
     "build:production": "npm run clean && npm run build",
     "start": "node bin/server.js",
     "test": "karma start"
