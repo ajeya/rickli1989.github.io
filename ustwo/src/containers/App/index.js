@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import './styles/app.scss';
+import Form from '+src/components/form';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import darkMuiTheme from './theme/dark';
 import lightMuiTheme from './theme/light';
@@ -21,7 +22,7 @@ export class App extends Component {
     return (
       <MuiThemeProvider muiTheme={lightMuiTheme}>
         <main>
-
+          <Form />
         </main>
       </MuiThemeProvider>
     );
