@@ -8,7 +8,7 @@ import { PageNotFound } from './containers/404';
 export default (
   <Router history={browserHistory}>
     <Route path="/" component={App}>
+      <Route status={404} path="*" component={PageNotFound} />
     </Route>
-    <Route status={404} path="*" component={PageNotFound} />
   </Router>
 );
