@@ -56,11 +56,20 @@ export default class CustomText extends Component{
     return re.test(email);
   }
 
+  componentWillUpdate(nextProps, nextState) {
+    if(nextProps.reset != this.props.reset && nextProps.reset){
+      this.setState({
+        value: ''
+      })
+    }
+  }
+
   render() {
     const {
       defaultValue, 
       onFocus,
       value,
+      reset,
       ...rest } = this.props;
     return (
       <TextField

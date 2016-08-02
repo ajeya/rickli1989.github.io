@@ -3,7 +3,6 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Paper from 'material-ui/Paper';
 import FlatButton from 'material-ui/FlatButton';
-import MenuItem from 'material-ui/MenuItem';
 import { Text, Checkbox, Radio, Label, RadioGroup } from '+src/components/FormElements';
 import { styles } from './styles.scss';
 
@@ -13,8 +12,8 @@ export default class Form extends Component {
     this.state = {
       canSubmit: false,
       form: {
-
-      }
+      },
+      reset: false
     }
 
     this.errorMessages = {
@@ -37,7 +36,9 @@ export default class Form extends Component {
         [type]: e.currentTarget.value
       }
     }
+    this.state.reset = false;
     this.checkForm();
+    console.log(this.state.form);
   }
 
   checkForm(){
@@ -74,6 +75,14 @@ export default class Form extends Component {
     });
   }
 
+  _resetForm(){
+    this.setState({
+      form: {
+      },
+      reset: true
+    })
+  }
+
   render() {
     return (
       <section className={`${styles}`}>
@@ -89,6 +98,7 @@ export default class Form extends Component {
                 autoComplete="off"
                 floatingLabelText="Name"
                 fullWidth={true}
+                reset={this.state.reset}
                 onChange={this.handleFormChange.bind(this, 'name')}
               />
 
@@ -101,6 +111,7 @@ export default class Form extends Component {
                 autoComplete="off"
                 floatingLabelText="Email"
                 fullWidth={true}
+                reset={this.state.reset}
                 onChange={this.handleFormChange.bind(this, 'email')}
               />
               <section className="section">
@@ -109,31 +120,35 @@ export default class Form extends Component {
                   name="type"
                   label="Cupcakes"
                   value="Cupcakes"
+                  reset={this.state.reset}
                   onChange={this.handleFormChange.bind(this, 'type')}
                 />
                 <Checkbox 
                   name="type"
                   label="Cheesecake"
                   value="Cheesecake"
+                  reset={this.state.reset}
                   onChange={this.handleFormChange.bind(this, 'type')}
                 />
                 <Checkbox 
                   name="type"
                   label="Butter Cakes"
                   value="Butter Cakes"
+                  reset={this.state.reset}
                   onChange={this.handleFormChange.bind(this, 'type')}
                 />
                 <Checkbox 
                   name="type"
                   label="Mudcakes"
                   value="Mudcakes"
+                  reset={this.state.reset}
                   onChange={this.handleFormChange.bind(this, 'type')}
                 />
               </section>
 
               <section className="section">
                 <Label name="Celebration type:"/>
-                <RadioGroup required name="celebration" onChange={this.handleFormChange.bind(this, 'celebration')}>
+                <RadioGroup reset={this.state.reset} required name="celebration" onChange={this.handleFormChange.bind(this, 'celebration')}>
                   <Radio
                     value="birthday"
                     label="Birthday"
@@ -160,16 +175,24 @@ export default class Form extends Component {
                   autoComplete="off"
                   multiLine={true}
                   fullWidth={true}
+                  reset={this.state.reset}
                   onChange={this.handleFormChange.bind(this, 'wish')}
                 />
               </section>
-             
-              <FlatButton
-                className="submitBtn"
-                type="submit"
-                label="Submit"
-                disabled={!this.state.canSubmit}
-              />
+              <section className="btnGroup">
+                <FlatButton
+                  className="restartBtn"
+                  type="reset"
+                  label="Reset"
+                  onClick={this._resetForm.bind(this)}
+                />
+                <FlatButton
+                  className="submitBtn"
+                  type="submit"
+                  label="Submit"
+                  disabled={!this.state.canSubmit}
+                />
+              </section>
             </form>
           </Paper>
         </MuiThemeProvider>

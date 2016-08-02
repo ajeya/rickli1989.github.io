@@ -8,33 +8,54 @@ export default class CustomRadioGroup extends Component{
     super(props);
   
     this.state = {
-      value: null
+      value: null,
+      otherValue: ''
     };
   }  
 
   handleValueChange(event, value) {
-    this.setState({
-      value: value
-    });
+    if(value !== 'other' && value !== 'birthday' && value !== 'wedding' && value !== 'corporate'){
+      this.setState({
+        otherValue: value
+      });
+    }else{
+      this.setState({
+        value: value
+      });
+    }
     if (this.props.onChange) this.props.onChange(event, value);
   }
 
+  componentWillUpdate(nextProps, nextState) {
+    if(nextProps.reset != this.props.reset && nextProps.reset){
+      this.setState({
+        value: null
+      })
+    }
+  }
+
   render() {
+    console.log(this.state.value);
+    const {
+      reset,
+      ...rest } = this.props;
     return (
       <section>
         <RadioButtonGroup
-          {...this.props}
+          {...rest}
+          valueSelected={this.state.value}
           onChange={this.handleValueChange.bind(this)}
         >
           {this.props.children}
         </RadioButtonGroup>
         {
-          (this.state.value !== 'birthday' && this.state.value !== 'wedding' && this.state.value !== 'corporate')  ? 
+          (this.state.value !== 'birthday' && this.state.value !== 'wedding' && this.state.value !== 'corporate' && this.state.value !== null)  ? 
           (
             <Text
               name="Other"
               autoComplete="off"
               fullWidth={true}
+              reset={this.props.reset}
               onChange={this.handleValueChange.bind(this)}
             />
           ) : null

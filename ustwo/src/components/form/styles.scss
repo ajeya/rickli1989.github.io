@@ -29,15 +29,26 @@
     padding: 20;
     max-height: 80vh;
     overflow: auto;
-    .submitBtn{
-      &:disabled{
-        background: $divider-color !important;
+    .btnGroup{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 20;
+      .submitBtn{
+        &:disabled{
+          background: $divider-color !important;
+        }
+        width: 45% !important;
+        color: #FFF !important;
+        background: $primary-color !important;
+        border-radius: 30px !important;
       }
-      margin-top: 30px !important;
-      width: 100% !important;
-      color: #FFF !important;
-      background: $primary-color !important;
-      border-radius: 30px !important;
+      .restartBtn{
+        width: 45% !important;
+        color: #FFF !important;
+        background: $accent-color !important;
+        border-radius: 30px !important;
+      }
     }
     .section{
       margin-top: 10px;

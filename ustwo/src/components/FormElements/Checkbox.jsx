@@ -17,11 +17,21 @@ export default class CustomCheckbox extends Component {
     if (this.props.onChange) this.props.onChange(event, value);
   }
 
+  componentWillUpdate(nextProps, nextState) {
+    if(nextProps.reset != this.props.reset && nextProps.reset){
+      this.setState({
+        value: null
+      })
+    }
+  }
 
   render() {
+    const {
+      reset,
+      ...rest } = this.props;
     return (
       <Checkbox
-        {...this.props}
+        {...rest}
         checked={this.state.value}
         onCheck={this.handleChange.bind(this)}
       />
