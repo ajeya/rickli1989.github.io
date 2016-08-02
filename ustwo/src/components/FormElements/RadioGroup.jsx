@@ -29,12 +29,13 @@ export default class CustomRadioGroup extends Component{
           {this.props.children}
         </RadioButtonGroup>
         {
-          this.state.value == 'other' ? 
+          (this.state.value !== 'birthday' && this.state.value !== 'wedding' && this.state.value !== 'corporate')  ? 
           (
             <Text
               name="Other"
               autoComplete="off"
               fullWidth={true}
+              onChange={this.handleValueChange.bind(this)}
             />
           ) : null
         }

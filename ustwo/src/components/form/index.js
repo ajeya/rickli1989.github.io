@@ -11,7 +11,10 @@ export default class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      canSubmit: false
+      canSubmit: false,
+      form: {
+
+      }
     }
 
     this.errorMessages = {
@@ -19,15 +22,44 @@ export default class Form extends Component {
     }
   }
 
-  static contextTypes = {
-    router: React.PropTypes.object
+  handleFormChange(type, e, value){
+    if(type == 'type'){
+      if(value){
+        if(this.state.form.type == undefined)
+          this.state.form.type = new Set();
+        this.state.form.type.add(e.currentTarget.value);
+      }else{
+        this.state.form.type.delete(e.currentTarget.value);
+      }
+    }else{
+      this.state.form = {
+        ...this.state.form,
+        [type]: e.currentTarget.value
+      }
+    }
+    this.checkForm();
   }
 
-  submitForm(data) {
+  checkForm(){
+    if(this.state.form.name == null || this.state.form.email == ""){
+      this.disableButton();
+    }else if(this.state.form.email == null || this.state.form.email == ""){
+      this.disableButton();
+    }else if(this.state.form.celebration == null || this.state.form.celebration == ""){
+      this.disableButton();
+    }else if(this.state.form.wish == null || this.state.form.wish == ""){
+      this.disableButton();
+    }else if(this.state.form.type == null || this.state.form.type.size == 0){
+      this.disableButton();
+    }else{
+      this.enableButton();
+    }
   }
 
-  notifyFormError(data) {
-    console.error('Form error:', data);
+  submitForm(e) {
+    e.preventDefault();
+    alert("Success! Check the console for the form data");
+    console.log(this.state.form);
   }
 
   enableButton() {
@@ -47,7 +79,9 @@ export default class Form extends Component {
       <section className={`${styles}`}>
         <MuiThemeProvider muiTheme={getMuiTheme()}>
           <Paper className='paper'>
-            <form>
+            <form
+              onSubmit={this.submitForm.bind(this)}
+            >
               <h2>Cake Enquiry Form</h2>
               <Text
                 name="name"
@@ -55,6 +89,7 @@ export default class Form extends Component {
                 autoComplete="off"
                 floatingLabelText="Name"
                 fullWidth={true}
+                onChange={this.handleFormChange.bind(this, 'name')}
               />
 
               <Text
@@ -66,30 +101,39 @@ export default class Form extends Component {
                 autoComplete="off"
                 floatingLabelText="Email"
                 fullWidth={true}
+                onChange={this.handleFormChange.bind(this, 'email')}
               />
               <section className="section">
                 <Label name="Type of cake:"/>
                 <Checkbox 
                   name="type"
                   label="Cupcakes"
+                  value="Cupcakes"
+                  onChange={this.handleFormChange.bind(this, 'type')}
                 />
                 <Checkbox 
                   name="type"
                   label="Cheesecake"
+                  value="Cheesecake"
+                  onChange={this.handleFormChange.bind(this, 'type')}
                 />
                 <Checkbox 
                   name="type"
                   label="Butter Cakes"
+                  value="Butter Cakes"
+                  onChange={this.handleFormChange.bind(this, 'type')}
                 />
                 <Checkbox 
                   name="type"
                   label="Mudcakes"
+                  value="Mudcakes"
+                  onChange={this.handleFormChange.bind(this, 'type')}
                 />
               </section>
 
               <section className="section">
                 <Label name="Celebration type:"/>
-                <RadioGroup name="celebration">
+                <RadioGroup required name="celebration" onChange={this.handleFormChange.bind(this, 'celebration')}>
                   <Radio
                     value="birthday"
                     label="Birthday"
@@ -112,10 +156,11 @@ export default class Form extends Component {
               <section className="section">
                 <Label name="Tell us about your dream cake:"/>
                 <Text
-                  name="Dreak cake"
+                  name="Dream cake"
                   autoComplete="off"
                   multiLine={true}
                   fullWidth={true}
+                  onChange={this.handleFormChange.bind(this, 'wish')}
                 />
               </section>
              

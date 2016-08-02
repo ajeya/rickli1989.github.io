@@ -62,7 +62,6 @@ export default class CustomText extends Component{
       onFocus,
       value,
       ...rest } = this.props;
-      console.log(this.state);
     return (
       <TextField
         {...rest}
