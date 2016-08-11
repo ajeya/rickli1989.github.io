@@ -1,0 +1,1 @@
+module.exports = require("github:lookfirst/oclazyload-systemjs-router@1.2.1/index");

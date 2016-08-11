@@ -1,0 +1,8 @@
+[
+  {
+    "stateName": "widget",
+    "urlPrefix": "/",
+    "type": "load",
+    "src": "app/main"
+  }
+]

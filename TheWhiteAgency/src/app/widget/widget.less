@@ -1,0 +1,132 @@
+@import '../less/variable.less';
+@import '../less/animation.less';
+md-toolbar h1 {
+  margin: auto;
+  font-size: 1.250em;
+  font-weight: 400;
+  color: @lightPrimaryColor;
+}
+.widget_wrapper{
+  justify-content: center;
+  align-items: center;
+  .header_bar{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+  .widget{
+    font-size: 1em;
+    width: 50%;
+    height: 200px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &.heightUp, &.heightDown{
+      -webkit-animation-duration: 1s;
+       animation-duration: 1s;
+       -webkit-animation-fill-mode: both;
+       animation-fill-mode: both;
+    }
+
+    &.heightUp{
+      -webkit-animation-name: heightUp;
+      animation-name: heightUp;
+    }
+    &.heightDown{
+      -webkit-animation-name: heightDown;
+      animation-name: heightDown;
+    }
+
+    .md-toolbar-tools{
+      color: @lightPrimaryColor;
+      justify-content: space-between;
+      .material-icons{
+        background-color: #C7C7C7;
+        border-radius: 50%;
+        color: #888;
+        outline: none;
+        &:hover{
+          cursor: pointer;
+        }
+      }
+    }
+    .progress_bar_wrapper{
+      display: flex;
+      flex-direction: column;
+      height: calc(~"100% - 64px");
+      justify-content: center;
+      width: 60%;
+      text-align: center;
+
+      &.flipInX, &.flipOutX{
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+      }
+      &.flipInX{
+        -webkit-backface-visibility: visible !important;
+        backface-visibility: visible !important;
+        -webkit-animation-name: flipInX;
+        animation-name: flipInX;
+      }
+      &.flipOutX{
+        -webkit-animation-name: flipOutX;
+        animation-name: flipOutX;
+        -webkit-backface-visibility: visible !important;
+        backface-visibility: visible !important;
+      }
+
+      .progressbar{
+        height: 25px;
+        // width: 0;
+        background-color: #fff;
+      }
+      .status{
+        display: flex;
+        justify-content: center;
+        .material-icons{
+          align-self: center;
+          color: rgb(0, 232, 84);
+          font-weight: bold;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+  .reset{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    .material-icons{
+      color: @lightPrimaryColor !important;
+    }
+  }
+}
+
+@media @phone {
+  md-toolbar{
+    h1{
+      font-size: 1em !important;
+    }
+  }
+  .widget_wrapper{
+    padding: 10px;
+    .widget{
+      width: 100% !important;
+      .progress_bar_wrapper{
+        width: 80%;
+      }
+    }
+  }
+}
+
+@media @tablet {
+  .widget_wrapper{
+    padding: 10px;
+    .widget{
+      width: 100% !important;
+    }
+  }
+}

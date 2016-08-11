@@ -1,0 +1,21 @@
+{
+  "name": "bcg",
+  "version": "1.0.0",
+  "description": "BCG Digital",
+  "main": "app.js",
+  "scripts": {
+    "start": "babel-node app.js",
+    "test": "node_modules/mocha/bin/mocha",
+    "ava" : "ava test/ava.spec.js"
+  },
+  "author": "Rick Li",
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^0.11.0",
+    "babel": "^6.3.26",
+    "babel-cli": "^6.4.5",
+    "babel-preset-node5": "^10.5.0",
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  }
+}

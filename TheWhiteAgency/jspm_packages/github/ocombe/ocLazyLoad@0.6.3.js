@@ -1,0 +1,1 @@
+module.exports = require("github:ocombe/ocLazyLoad@0.6.3/dist/ocLazyLoad.min");
